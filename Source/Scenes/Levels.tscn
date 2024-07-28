@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Source/Scripts/LevelManager.gd" type="Script" id=1]
+[ext_resource path="res://Source/Scripts/LevelMain.gd" type="Script" id=2]
+
+[node name="Levels" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+margin_left = 2.0
+margin_top = 16.0
+margin_right = 1019.0
+margin_bottom = 427.0
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
+custom_constants/separation = 250
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]

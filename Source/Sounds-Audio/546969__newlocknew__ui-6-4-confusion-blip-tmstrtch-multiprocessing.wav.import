@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/546969__newlocknew__ui-6-4-confusion-blip-tmstrtch-multiprocessing.wav-45e33f7de9b03fef6b0c5842be2aab89.sample"
+
+[deps]
+
+source_file="res://Source/Sounds-Audio/546969__newlocknew__ui-6-4-confusion-blip-tmstrtch-multiprocessing.wav"
+dest_files=[ "res://.import/546969__newlocknew__ui-6-4-confusion-blip-tmstrtch-multiprocessing.wav-45e33f7de9b03fef6b0c5842be2aab89.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

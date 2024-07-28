@@ -1,0 +1,188 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Source/Scenes/Lobby.gd" type="Script" id=1]
+[ext_resource path="res://Source/Fonts/DejaVuSansMono.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Source/Images/paper-plane-pngrepo-com.png" type="Texture" id=3]
+[ext_resource path="res://Source/Images/LevelSelector/left-arrow-pngrepo-com.png" type="Texture" id=4]
+[ext_resource path="res://Source/Fonts/Azonix-1VB0.otf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 5 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="StartGameButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -168.0
+margin_top = -249.0
+margin_right = -18.0
+margin_bottom = -215.0
+disabled = true
+text = "Start Game"
+
+[node name="ChatBox" type="ScrollContainer" parent="."]
+margin_left = 4.0
+margin_top = 267.0
+margin_right = 426.0
+margin_bottom = 558.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChatBox"]
+theme = SubResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="MessageLine" type="LineEdit" parent="Control"]
+margin_left = 1.0
+margin_top = 575.0
+margin_right = 267.0
+margin_bottom = 599.0
+placeholder_text = "Send Message..."
+
+[node name="SendMessage" type="Button" parent="Control"]
+margin_left = 268.0
+margin_top = 576.0
+margin_right = 818.0
+margin_bottom = 1144.0
+rect_scale = Vector2( 0.04, 0.04 )
+icon = ExtResource( 3 )
+
+[node name="PlayerList" type="ScrollContainer" parent="."]
+margin_left = 729.0
+margin_top = 357.0
+margin_right = 1012.0
+margin_bottom = 586.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerList"]
+
+[node name="SendPlayerData" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[node name="PrivateRoomCode" type="Label" parent="."]
+visible = false
+margin_left = 784.0
+margin_top = 470.0
+margin_right = 1024.0
+margin_bottom = 500.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+
+[node name="CopyRoomCode" type="Button" parent="PrivateRoomCode"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = 28.0
+margin_right = 90.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 4 )
+text = "Copy Room Code"
+
+[node name="Control2" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="LevelSelection" type="ColorRect" parent="Control2"]
+margin_left = 676.0
+margin_top = 106.0
+margin_right = 1021.0
+margin_bottom = 413.0
+color = Color( 0.231373, 0.223529, 0.262745, 1 )
+
+[node name="LevelImage" type="TextureRect" parent="Control2/LevelSelection"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -111.5
+margin_top = -115.0
+margin_right = 98.5
+margin_bottom = 45.0
+expand = true
+
+[node name="LeftArrow" type="TextureButton" parent="Control2/LevelSelection"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -55.0
+margin_right = 40.0
+margin_bottom = -15.0
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="RightArrow" type="TextureButton" parent="Control2/LevelSelection"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -53.0
+margin_top = -55.0
+margin_right = -13.0
+margin_bottom = -15.0
+texture_normal = ExtResource( 4 )
+expand = true
+flip_h = true
+
+[node name="GameModeSelection" type="Label" parent="Control2/LevelSelection"]
+margin_left = 58.0
+margin_top = 274.0
+margin_right = 291.0
+margin_bottom = 302.0
+custom_fonts/font = SubResource( 5 )
+text = "Corrupted Mode"
+align = 1
+valign = 1
+
+[node name="GameModeSelectionLeft" type="TextureButton" parent="Control2/LevelSelection"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 7.0
+margin_top = 119.5
+margin_right = 35.0
+margin_bottom = 145.5
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="GameModeSelectionRight" type="TextureButton" parent="Control2/LevelSelection"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 306.0
+margin_top = 119.5
+margin_right = 334.0
+margin_bottom = 145.5
+texture_normal = ExtResource( 4 )
+expand = true
+flip_h = true
+
+[connection signal="pressed" from="StartGameButton" to="." method="_on_StartGameButton_pressed"]
+[connection signal="pressed" from="Control/SendMessage" to="." method="_on_SendMessage_pressed"]
+[connection signal="timeout" from="SendPlayerData" to="." method="_on_SendPlayerData_timeout"]
+[connection signal="pressed" from="PrivateRoomCode/CopyRoomCode" to="." method="_on_CopyRoomCode_pressed"]
+[connection signal="pressed" from="Control2/LevelSelection/LeftArrow" to="." method="_on_LeftArrow_pressed"]
+[connection signal="pressed" from="Control2/LevelSelection/RightArrow" to="." method="_on_RightArrow_pressed"]
+[connection signal="pressed" from="Control2/LevelSelection/GameModeSelectionLeft" to="." method="_on_GameModeSelectionLeft_pressed"]
+[connection signal="pressed" from="Control2/LevelSelection/GameModeSelectionRight" to="." method="_on_GameModeSelectionRight_pressed"]

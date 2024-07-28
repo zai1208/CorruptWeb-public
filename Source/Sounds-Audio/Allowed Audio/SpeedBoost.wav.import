@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SpeedBoost.wav-bd7ac8b9de8ce5ebd3bb4bbf77537ca6.sample"
+
+[deps]
+
+source_file="res://Source/Sounds-Audio/Allowed Audio/SpeedBoost.wav"
+dest_files=[ "res://.import/SpeedBoost.wav-bd7ac8b9de8ce5ebd3bb4bbf77537ca6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

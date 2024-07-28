@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends KinematicBody2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 21, 38.5 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+position = Vector2( 20, 60 )
+script = SubResource( 3 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2( 20.5, 38.5 )
+mesh = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 2 )

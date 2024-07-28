@@ -1,0 +1,378 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "DocItem",
+"class": "ArgumentDocItem",
+"language": "GDScript",
+"path": "res://addons/silicon.util.custom_docs/doc_item/argument_doc_item.gd"
+}, {
+"base": "DocItem",
+"class": "ClassDocItem",
+"language": "GDScript",
+"path": "res://addons/silicon.util.custom_docs/doc_item/class_doc_item.gd"
+}, {
+"base": "DocItem",
+"class": "ConstantDocItem",
+"language": "GDScript",
+"path": "res://addons/silicon.util.custom_docs/doc_item/constant_doc_item.gd"
+}, {
+"base": "HBoxContainer",
+"class": "ContributorClass",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/ContributorClass.gd"
+}, {
+"base": "Node",
+"class": "DiscordRPC",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/DiscordRPC.gd"
+}, {
+"base": "Reference",
+"class": "DiscordRPCEnum",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/DiscordRPCEnum.gd"
+}, {
+"base": "Reference",
+"class": "DocExporter",
+"language": "GDScript",
+"path": "res://addons/silicon.util.custom_docs/doc_exporter/doc_exporter.gd"
+}, {
+"base": "Reference",
+"class": "DocItem",
+"language": "GDScript",
+"path": "res://addons/silicon.util.custom_docs/doc_item/doc_item.gd"
+}, {
+"base": "HTTPRequest",
+"class": "FirebaseAuth",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/auth/auth.gd"
+}, {
+"base": "Node",
+"class": "FirebaseDatabase",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/database/database.gd"
+}, {
+"base": "Node",
+"class": "FirebaseDatabaseReference",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/database/reference.gd"
+}, {
+"base": "Node",
+"class": "FirebaseDatabaseStore",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/database/database_store.gd"
+}, {
+"base": "Node",
+"class": "FirebaseDynamicLinks",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/dynamiclinks/dynamiclinks.gd"
+}, {
+"base": "Node",
+"class": "FirebaseFirestore",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/firestore/firestore.gd"
+}, {
+"base": "Node",
+"class": "FirebaseFunctions",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/functions/functions.gd"
+}, {
+"base": "Resource",
+"class": "FirebaseResource",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/database/resource.gd"
+}, {
+"base": "Node",
+"class": "FirebaseStorage",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/storage/storage.gd"
+}, {
+"base": "Reference",
+"class": "FirebaseUserData",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/auth/user_data.gd"
+}, {
+"base": "Reference",
+"class": "FirestoreCollection",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/firestore/firestore_collection.gd"
+}, {
+"base": "Reference",
+"class": "FirestoreDocument",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/firestore/firestore_document.gd"
+}, {
+"base": "Reference",
+"class": "FirestoreQuery",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/firestore/firestore_query.gd"
+}, {
+"base": "Reference",
+"class": "FirestoreTask",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/firestore/firestore_task.gd"
+}, {
+"base": "Reference",
+"class": "FunctionTask",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/functions/function_task.gd"
+}, {
+"base": "PanelContainer",
+"class": "GistItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/GistItem.gd"
+}, {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
+"base": "Reference",
+"class": "IPC",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/IPC.gd"
+}, {
+"base": "Reference",
+"class": "IPCModule",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/IPCModule.gd"
+}, {
+"base": "Reference",
+"class": "IPCPayload",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/IPCPayload.gd"
+}, {
+"base": "Reference",
+"class": "IPCPipe",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/pipe/IPCPipe.gd"
+}, {
+"base": "Reference",
+"class": "IPCUtil",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/util/IPCUtil.gd"
+}, {
+"base": "HBoxContainer",
+"class": "InvitationItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/InvitationItem.gd"
+}, {
+"base": "DocItem",
+"class": "MethodDocItem",
+"language": "GDScript",
+"path": "res://addons/silicon.util.custom_docs/doc_item/method_doc_item.gd"
+}, {
+"base": "DocItem",
+"class": "PropertyDocItem",
+"language": "GDScript",
+"path": "res://addons/silicon.util.custom_docs/doc_item/property_doc_item.gd"
+}, {
+"base": "PanelContainer",
+"class": "RepositoryItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/RepositoryItem.gd"
+}, {
+"base": "Reference",
+"class": "RichPresence",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/RichPresence.gd"
+}, {
+"base": "Reference",
+"class": "RichPresenceButton",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/RichPresenceButton.gd"
+}, {
+"base": "IPCModule",
+"class": "RichPresenceModule",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/RichPresenceModule.gd"
+}, {
+"base": "DocItem",
+"class": "SignalDocItem",
+"language": "GDScript",
+"path": "res://addons/silicon.util.custom_docs/doc_item/signal_doc_item.gd"
+}, {
+"base": "Reference",
+"class": "StorageReference",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/storage/storage_reference.gd"
+}, {
+"base": "Reference",
+"class": "StorageTask",
+"language": "GDScript",
+"path": "res://addons/godot-firebase/storage/storage_task.gd"
+}, {
+"base": "",
+"class": "StreamPeerUnix",
+"language": "NativeScript",
+"path": "res://addons/godot_editor_discord_presence/godot-unix-socket/unix-socket.gdns"
+}, {
+"base": "Reference",
+"class": "URLUtil",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/util/URLUtil.gd"
+}, {
+"base": "Reference",
+"class": "UUID",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/util/UUID.gd"
+}, {
+"base": "IPCPipe",
+"class": "UnixPipe",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/pipe/UnixPipe.gd"
+}, {
+"base": "IPCPayload",
+"class": "UpdateRichPresencePayload",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/module/rich presence/UpdateRichPresencePayload.gd"
+}, {
+"base": "IPCPipe",
+"class": "WindowsPipe",
+"language": "GDScript",
+"path": "res://addons/godot_editor_discord_presence/Discord RPC/ipc/pipe/WindowsPipe.gd"
+} ]
+_global_script_class_icons={
+"ArgumentDocItem": "",
+"ClassDocItem": "",
+"ConstantDocItem": "",
+"ContributorClass": "",
+"DiscordRPC": "",
+"DiscordRPCEnum": "",
+"DocExporter": "",
+"DocItem": "",
+"FirebaseAuth": "",
+"FirebaseDatabase": "",
+"FirebaseDatabaseReference": "",
+"FirebaseDatabaseStore": "",
+"FirebaseDynamicLinks": "",
+"FirebaseFirestore": "",
+"FirebaseFunctions": "",
+"FirebaseResource": "",
+"FirebaseStorage": "",
+"FirebaseUserData": "",
+"FirestoreCollection": "",
+"FirestoreDocument": "",
+"FirestoreQuery": "",
+"FirestoreTask": "",
+"FunctionTask": "",
+"GistItem": "",
+"GitAPI": "",
+"IPC": "",
+"IPCModule": "",
+"IPCPayload": "",
+"IPCPipe": "",
+"IPCUtil": "",
+"InvitationItem": "",
+"MethodDocItem": "",
+"PropertyDocItem": "",
+"RepositoryItem": "",
+"RichPresence": "",
+"RichPresenceButton": "",
+"RichPresenceModule": "",
+"SignalDocItem": "",
+"StorageReference": "",
+"StorageTask": "",
+"StreamPeerUnix": "",
+"URLUtil": "",
+"UUID": "",
+"UnixPipe": "",
+"UpdateRichPresencePayload": "",
+"WindowsPipe": ""
+}
+
+[application]
+
+config/name="CorruptWeb"
+config/description="A game about Corrupted Networks"
+run/main_scene="res://Source/Scenes/NewStartLoadingScreen.tscn"
+boot_splash/image="res://Source/Images/BlackImage.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://Source/Images/DiscordRPLogo.png"
+config/macos_native_icon="res://Source/Images/favicon_mac.icns"
+config/windows_native_icon="res://Source/Images/favicon_windows.ico"
+
+[autoload]
+
+PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
+IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
+UserData="*res://addons/github-integration/scripts/user_data.gd"
+RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
+SceneManager="*res://Source/Scripts/SceneManager.gd"
+LoadAssets="*res://Source/Scripts/Load_Assets.gd"
+AnalyseSystem="*res://Source/Scripts/AnalyseSystem.gd"
+SettingsManager="*res://Source/Scripts/SettingsManager.gd"
+Debugging="*res://Source/Scripts/Debugging.gd"
+MainMenuMusicSound="*res://Source/Scenes/MainMenuMusicSound.tscn"
+DiscordRP="*res://Source/Scripts/DiscordRP.gd"
+LevelGenerationData="*res://Source/Scripts/LevelGenerationTEMPData.gd"
+Global="*res://Source/Scripts/Global.gd"
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
+MissionGen="*res://Source/Scripts/MissionGen.gd"
+GameExit="*res://Source/Scripts/GameExit.gd"
+
+[display]
+
+window/size/resizable=false
+window/per_pixel_transparency/allowed=true
+window/per_pixel_transparency/enabled=true
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/github-integration/plugin.cfg", "res://addons/radial_progress/plugin.cfg" )
+
+[gdnative]
+
+singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+
+[input]
+
+LeftMouseClick={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+Enter={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
+SpaceBar={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+BoostedKeys={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777233,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777231,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Escape={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
+}
+E={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"

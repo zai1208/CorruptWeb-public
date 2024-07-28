@@ -1,0 +1,201 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Source/Fonts/Azonix-1VB0.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Source/Scenes/LevelCompleted.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "FadeIn"
+length = 0.8
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("BG:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("BG:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("BG:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("BG:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.54902, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8 )
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("BG:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("BG:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("BG:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("BG:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0.54902, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="BG" type="ColorRect" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.54902 )
+
+[node name="Control" type="Control" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -210.5
+margin_right = 210.5
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 1 )
+text = "LEVEL COMPLETE!"
+align = 1
+valign = 1
+
+[node name="LevelSelection" type="Button" parent="Control"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -148.0
+margin_top = -11.0
+margin_right = 148.0
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "LEVEL SELECTION"
+
+[node name="MainMenu" type="Button" parent="Control"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -148.0
+margin_top = 26.0
+margin_right = 148.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "MAIN MENU"
+
+[node name="QuitToDesktop" type="Button" parent="Control"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -148.0
+margin_top = 60.0
+margin_right = 148.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "QUIT TO DESKTOP"
+
+[node name="Label3" type="Label" parent="Control"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -242.0
+margin_top = -41.0
+margin_right = 242.0
+margin_bottom = -15.0
+custom_fonts/font = SubResource( 4 )
+text = "enemies destroyed: 69 (NICE)"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
+anims/FadeIn = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[connection signal="pressed" from="Control/LevelSelection" to="." method="_on_LevelSelection_pressed"]
+[connection signal="pressed" from="Control/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="Control/QuitToDesktop" to="." method="_on_QuitToDesktop_pressed"]

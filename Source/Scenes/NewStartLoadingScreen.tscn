@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Source/Fonts/azonix-font/Azonix-1VB0.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Source/Scenes/NewStartLoadingScreen.gd" type="Script" id=2]
+[ext_resource path="res://addons/radial_progress/RadialProgressBar.gd" type="Script" id=3]
+[ext_resource path="res://Source/Sounds-Audio/Allowed Audio/527423__veiler__muffled-kick.wav" type="AudioStream" id=4]
+[ext_resource path="res://Source/Fonts/DejaVuSansMono.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 1
+outline_color = Color( 1, 0.482353, 0.482353, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 1
+outline_color = Color( 1, 0.482353, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="RadialProgressBar" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 3.0
+margin_top = -5.0
+margin_right = 43.0
+margin_bottom = 35.0
+script = ExtResource( 3 )
+radius = 75
+thickness = 12
+bg_color = Color( 0, 0, 0, 0 )
+bar_color = Color( 0.815686, 0.141176, 0.141176, 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.0
+margin_top = -114.0
+margin_right = 110.0
+margin_bottom = 114.0
+custom_fonts/font = SubResource( 1 )
+text = "CW"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Label"]
+anchor_left = 0.227273
+anchor_top = 0.824561
+anchor_right = 0.772727
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "Loading Game"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="."]
+visible = false
+margin_left = 340.0
+margin_top = 364.0
+margin_right = 677.0
+margin_bottom = 518.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="LoadTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 2.0
+pitch_scale = 0.5
+
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="TextChangeTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="Timer4" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="LoadTimer" to="." method="_on_LoadTimer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]
+[connection signal="timeout" from="TextChangeTimer" to="." method="_on_TextChangeTimer_timeout"]
+[connection signal="timeout" from="Timer4" to="." method="_on_Timer4_timeout"]

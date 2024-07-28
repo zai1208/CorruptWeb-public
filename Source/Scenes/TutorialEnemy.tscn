@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Source/Images/EnemyImages/Enemy-01.png" type="Texture" id=1]
+[ext_resource path="res://Source/Images/light_shadow_light.png" type="Texture" id=2]
+[ext_resource path="res://Source/Scenes/TutorialEnemy.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7, 4.1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 1, 0.235294, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 35, 20 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 35, 19.5 )
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -5.96046e-08
+margin_top = -5.96046e-08
+margin_right = 14.0
+margin_bottom = 8.0
+rect_scale = Vector2( 5, 5 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 36, 12 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 2 )
+texture_scale = 0.02
+color = Color( 1, 0, 0, 1 )
+energy = 2.0
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
+margin_left = -9.0
+margin_top = -17.0
+margin_right = 78.0
+margin_bottom = -3.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+step = 1.0
+value = 100.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 35, 20 )
+emitting = false
+amount = 150
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.6
+scale_amount = 10.0
+scale_amount_random = 0.5
+color = Color( 0.482353, 0, 0, 1 )
+
+[node name="MovementTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="EnemyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyArea"]
+position = Vector2( 35, 20 )
+shape = SubResource( 5 )
+
+[connection signal="area_entered" from="EnemyArea" to="." method="_on_Area2D_area_entered"]

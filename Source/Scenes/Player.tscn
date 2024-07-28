@@ -1,0 +1,271 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://shader.shader" type="Shader" id=1]
+[ext_resource path="res://Source/Fonts/DejaVuSansMono.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Source/Fonts/azonix-font/Azonix-1VB0.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://shader_2.shader" type="Shader" id=4]
+[ext_resource path="res://Source/Scenes/PlayerCode.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=19]
+resource_name = "PlayerDeathAnimation"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("MeshInstance2D:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("MeshInstance2D:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("MeshInstance2D:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("MeshInstance2D:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "PlayerDeathReadyReset"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("MeshInstance2D:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("MeshInstance2D:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("MeshInstance2D:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("MeshInstance2D:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("MeshInstance2D:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("MeshInstance2D:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("MeshInstance2D:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("MeshInstance2D:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "ShaderParamReset"
+
+[sub_resource type="DynamicFont" id=27]
+size = 20
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 20.5, 38.5 )
+
+[sub_resource type="CubeMesh" id=9]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 21.5, 39 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 13
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.12549, 0.882353, 0.321569, 1 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.223529, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=28]
+shader = ExtResource( 1 )
+shader_param/shake_power = 0.05
+shader_param/shake_rate = 0.0
+shader_param/shake_speed = 10.0
+shader_param/shake_block_size = 30.5
+shader_param/shake_color_rate = 0.01
+
+[sub_resource type="ShaderMaterial" id=29]
+shader = ExtResource( 4 )
+shader_param/shake_power = 0.05
+shader_param/shake_rate = 1.0
+shader_param/shake_speed = 10.0
+shader_param/shake_block_size = 30.5
+shader_param/shake_color_rate = 0.01
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 513, 306 )
+script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/PlayerDeathAnimation = SubResource( 19 )
+anims/PlayerDeathReadyReset = SubResource( 21 )
+anims/RESET = SubResource( 20 )
+anims/ShaderParamReset = SubResource( 25 )
+
+[node name="BGColour" type="ColorRect" parent="."]
+margin_left = -5749.0
+margin_top = -680.0
+margin_right = 16752.0
+margin_bottom = 1243.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -39 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 2.5
+offset_h = 0.5
+offset_v = -0.6
+
+[node name="PlayerHUD" type="Control" parent="Camera2D"]
+margin_left = -513.0
+margin_top = -267.0
+margin_right = -473.0
+margin_bottom = -227.0
+
+[node name="GainedData" type="Control" parent="Camera2D/PlayerHUD"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="DataCollected" type="Label" parent="Camera2D/PlayerHUD/GainedData"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 27 )
+text = "Data Collected"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 19.5, 37.5 )
+shape = SubResource( 8 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 19.5, 37.5 )
+scale = Vector2( 20.5, 38.5 )
+mesh = SubResource( 9 )
+
+[node name="PlayerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+position = Vector2( 19.5, 37 )
+shape = SubResource( 13 )
+
+[node name="HealthDecreaseTimer" type="Timer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -40.0
+margin_top = -23.0
+margin_right = 78.0
+margin_bottom = -6.0
+custom_fonts/font = SubResource( 16 )
+custom_styles/fg = SubResource( 17 )
+custom_styles/bg = SubResource( 18 )
+value = 100.0
+
+[node name="ShakeGlitchHealthEffect" type="ColorRect" parent="."]
+material = SubResource( 28 )
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 510.0
+margin_bottom = 302.0
+
+[node name="ShakeGlitchEffect" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 29 )
+margin_left = -723.0
+margin_top = -395.0
+margin_right = 735.0
+margin_bottom = 441.0
+
+[connection signal="area_entered" from="PlayerArea" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="PlayerArea" to="." method="_on_PlayerArea_area_exited"]
+[connection signal="timeout" from="HealthDecreaseTimer" to="." method="_on_HealthDecreaseTimer_timeout"]

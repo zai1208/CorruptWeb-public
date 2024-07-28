@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/546969__newlocknew__ui-6-4-confusion-blip-tmstrtch-multiprocessing.mp3-8ee83835b45f0251772559011a1750d8.mp3str"
+
+[deps]
+
+source_file="res://Source/Sounds-Audio/546969__newlocknew__ui-6-4-confusion-blip-tmstrtch-multiprocessing.mp3"
+dest_files=[ "res://.import/546969__newlocknew__ui-6-4-confusion-blip-tmstrtch-multiprocessing.mp3-8ee83835b45f0251772559011a1750d8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

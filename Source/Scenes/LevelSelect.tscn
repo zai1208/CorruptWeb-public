@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Source/Images/8081_earthmap4k.jpg" type="Texture" id=1]
+[ext_resource path="res://Source/Fonts/Azonix-1VB0.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Source/Scenes/LevelSelect.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 17, 49 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 19.5, 21 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -179.0
+margin_right = 635.0
+margin_bottom = 179.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="MissionData" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="MissionData"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 663.0
+margin_top = 106.0
+margin_right = 984.0
+margin_bottom = 454.0
+color = Color( 0.219608, 0.207843, 0.247059, 1 )
+
+[node name="Title" type="Label" parent="MissionData/ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -119.0
+margin_top = 4.0
+margin_right = 119.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 1 )
+text = "MISSION DATA"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="MissionData/ColorRect"]
+margin_left = 1.0
+margin_top = 77.0
+margin_right = 41.0
+margin_bottom = 91.0
+text = "Network Name: NET_023832"
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="AfricaDotSpawnArea" type="Area2D" parent="Control"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Control/AfricaDotSpawnArea"]
+position = Vector2( 369, 356 )
+build_mode = 1
+polygon = PoolVector2Array( -55, -66, -49, -69, -44, -69, -42, -67, -40, -65, -37, -65, -35, -64, -34, -62, -35, -57, -36, -54, -33, -50, -30, -45, -28, -39, -28, -36, -27, -33, -28, -31, -30, -26, -31, -21, -26, -11, -25, -3, -21, 4, -19, 9, -19, 9, -20, 9, -18, 12, -14, 12, -8, 12, -3, 10, 2, 6, 5, 1, 6, -2, 6, -5, 11, -7, 10, -15, 9, -16, 19, -24, 20, -32, 16, -44, 20, -51, 26, -59, 30, -62, 33, -67, 35, -71, 38, -77, 38, -79, 26, -76, 16, -89, 5, -114, -7, -119, -14, -120, -17, -115, -30, -121, -35, -123, -33, -126, -34, -129, -40, -128, -45, -128, -52, -126, -61, -122, -69, -113, -73, -111, -76, -108, -77, -105, -80, -98, -79, -86, -80, -84, -79, -80, -71, -70, -67, -67, -64, -65, -62, -67 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/AfricaDotSpawnArea"]
+position = Vector2( 360.5, 298 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Control/AfricaDotSpawnArea"]
+position = Vector2( 330, 263 )
+shape = SubResource( 3 )
+disabled = true

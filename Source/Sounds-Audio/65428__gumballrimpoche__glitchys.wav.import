@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/65428__gumballrimpoche__glitchys.wav-71d11b0e91ff8da40e27a322213c32bf.sample"
+
+[deps]
+
+source_file="res://Source/Sounds-Audio/65428__gumballrimpoche__glitchys.wav"
+dest_files=[ "res://.import/65428__gumballrimpoche__glitchys.wav-71d11b0e91ff8da40e27a322213c32bf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

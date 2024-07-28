@@ -1,0 +1,707 @@
+[gd_scene load_steps=45 format=2]
+
+[ext_resource path="res://Source/Fonts/DejaVuSansMono.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Source/Fonts/Azonix-1VB0.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Source/Images/light_shadow_light.png" type="Texture" id=3]
+[ext_resource path="res://Source/Scenes/Camera2DPlayer.gd" type="Script" id=4]
+[ext_resource path="res://Source/TileSet/LevelTileSetCW.tres" type="TileSet" id=5]
+[ext_resource path="res://Source/Scripts/PlayerTutorial.gd" type="Script" id=6]
+[ext_resource path="res://Source/Sounds-Audio/Allowed Audio/explosion.wav" type="AudioStream" id=7]
+[ext_resource path="res://Source/Sounds-Audio/Allowed Audio/hitHurt.wav" type="AudioStream" id=8]
+[ext_resource path="res://Source/Images/SpeedEffect/speed_effect.png" type="Texture" id=9]
+[ext_resource path="res://Source/Sounds-Audio/Allowed Audio/powerUp.wav" type="AudioStream" id=10]
+[ext_resource path="res://Source/Scenes/TutorialMouseCursor.gd" type="Script" id=11]
+[ext_resource path="res://Source/Scenes/TutorialEnemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Source/Scenes/PowerUps/ElectricPowerup.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Source/Scenes/PowerUps/HealthPowerup.tscn" type="PackedScene" id=14]
+[ext_resource path="res://shader.shader" type="Shader" id=15]
+[ext_resource path="res://Source/Scenes/TutorialLevel.gd" type="Script" id=16]
+[ext_resource path="res://Source/Scenes/TutorialPauseMenu.gd" type="Script" id=17]
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 20.5, 38.5 )
+
+[sub_resource type="CubeMesh" id=8]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 21.5, 39 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 13
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.12549, 0.882353, 0.321569, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.223529, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = ExtResource( 15 )
+shader_param/shake_power = 0.05
+shader_param/shake_rate = 0.2
+shader_param/shake_speed = 10.0
+shader_param/shake_block_size = 30.5
+shader_param/shake_color_rate = 0.01
+
+[sub_resource type="CubeMesh" id=14]
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 3.5, 3.5 )
+
+[sub_resource type="Animation" id=13]
+resource_name = "01"
+
+[sub_resource type="DynamicFont" id=16]
+size = 30
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=17]
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 210.5, 160 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 40, 162 )
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 39.5, 158.5 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 21, 161 )
+
+[sub_resource type="Animation" id=23]
+resource_name = "FadeIn"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("FadeIn:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("FadeIn:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("FadeIn:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("FadeIn:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("FadeIn:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("FadeIn:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("FadeIn:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("FadeIn:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="DynamicFont" id=25]
+size = 50
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=28]
+size = 20
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=29]
+
+[sub_resource type="DynamicFont" id=30]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=31]
+size = 20
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=32]
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 139.871, 236.842 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 16 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.631373, 0.631373, 0.788235, 1 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 189, 493 )
+script = ExtResource( 6 )
+
+[node name="BGColour" type="ColorRect" parent="Player"]
+margin_left = -3362.97
+margin_top = -5562.26
+margin_right = 22162.0
+margin_bottom = 5129.74
+color = Color( 0, 0, 0, 1 )
+
+[node name="SpeedGhostEffect" type="CPUParticles2D" parent="Player"]
+position = Vector2( 19, 37 )
+emitting = false
+amount = 40
+lifetime = 0.7
+randomness = 1.0
+local_coords = false
+texture = ExtResource( 9 )
+direction = Vector2( 0, 0 )
+gravity = Vector2( 0, 10 )
+initial_velocity = 30.0
+color_ramp = SubResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 0, -39 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 2.5
+offset_h = 0.5
+offset_v = -0.6
+script = ExtResource( 4 )
+
+[node name="PlayerHUD" type="Control" parent="Player/Camera2D"]
+margin_left = -513.0
+margin_top = -267.0
+margin_right = -473.0
+margin_bottom = -227.0
+
+[node name="GainedData" type="Control" parent="Player/Camera2D/PlayerHUD"]
+margin_left = 372.0
+margin_top = 246.0
+margin_right = 412.0
+margin_bottom = 286.0
+
+[node name="DataCollected" type="Label" parent="Player/Camera2D/PlayerHUD/GainedData"]
+visible = false
+margin_left = -26.0
+margin_right = 350.0
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 6 )
+text = "Data Collected: 200MB/1500MB"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 19.5, 37.5 )
+shape = SubResource( 7 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Player"]
+position = Vector2( 19.5, 37.5 )
+scale = Vector2( 20.5, 38.5 )
+mesh = SubResource( 8 )
+
+[node name="PlayerArea" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerArea"]
+position = Vector2( 19.5, 37 )
+shape = SubResource( 9 )
+
+[node name="HealthDecreaseTimer" type="Timer" parent="Player"]
+
+[node name="HealthBar" type="ProgressBar" parent="Player"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -40.0
+margin_top = -23.0
+margin_right = 78.0
+margin_bottom = -6.0
+custom_fonts/font = SubResource( 10 )
+custom_styles/fg = SubResource( 11 )
+custom_styles/bg = SubResource( 12 )
+value = 100.0
+
+[node name="Powerup" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource( 10 )
+
+[node name="Attack" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource( 8 )
+
+[node name="EnemyDestroyed" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource( 7 )
+volume_db = 10.0
+pitch_scale = 0.6
+
+[node name="SpeedPowerUpEffectTimer" type="Timer" parent="Player"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Light2D" type="Light2D" parent="Player"]
+position = Vector2( 244, -76 )
+scale = Vector2( 1.77375, 1 )
+texture = ExtResource( 3 )
+energy = 0.6
+
+[node name="ShakeGlitchEffect" type="ColorRect" parent="Player"]
+material = SubResource( 19 )
+margin_left = -270.0
+margin_top = -334.0
+margin_right = 341.0
+margin_bottom = 78.0
+
+[node name="MouseCursor" type="Control" parent="Player"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 11 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Player/MouseCursor"]
+position = Vector2( 2.5, 2.5 )
+scale = Vector2( 3.5, 3.5 )
+mesh = SubResource( 14 )
+
+[node name="Mouse" type="Area2D" parent="Player/MouseCursor/MeshInstance2D"]
+position = Vector2( -0.714279, -0.714287 )
+scale = Vector2( 0.285714, 0.285714 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/MouseCursor/MeshInstance2D/Mouse"]
+position = Vector2( 2.5, 2.5 )
+shape = SubResource( 15 )
+
+[node name="Label" type="Label" parent="Player"]
+margin_left = -461.0
+margin_top = 195.0
+margin_right = -181.0
+margin_bottom = 226.0
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1114, 529 )
+
+[node name="KinematicBody2D5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1217, 529 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1825, 529 )
+
+[node name="KinematicBody2D4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1720, 529 )
+
+[node name="KinematicBody2D3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2293, 529 )
+
+[node name="KinematicBody2D6" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2394, 530 )
+
+[node name="Tutorial" type="AnimationPlayer" parent="."]
+anims/01 = SubResource( 13 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 27, 0 )
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 30, 30 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 65514, 2, 0, 206, 2, 0, 131050, 2, 0, 65742, 2, 0, 196586, 2, 0, 131278, 2, 0, 262122, 2, 0, 196814, 2, 0, 327658, 2, 0, 262350, 2, 0, 393194, 2, 0, 327886, 2, 0, 458730, 2, 0, 393422, 2, 0, 524266, 2, 0, 458958, 2, 0, 589802, 2, 0, 524477, 6, 0, 524479, 6, 0, 524481, 6, 0, 524483, 6, 0, 524485, 6, 0, 524494, 2, 0, 655338, 2, 0, 590013, 1073741830, 0, 590015, 1073741830, 0, 590017, 1073741830, 0, 590019, 1073741830, 0, 590021, 1073741830, 0, 590030, 2, 0, 720874, 2, 0, 655566, 2, 0, 786410, 2, 0, 721102, 2, 0, 851946, 2, 0, 786638, 2, 0, 917482, 2, 0, 852174, 2, 0, 983018, 2, 0, 917710, 2, 0, 1048554, 2, 0, 983246, 2, 0, 1114090, 2, 0, 1048782, 2, 0, 1179626, 2, 0, 1114318, 2, 0, 1245162, 2, 0, 1179833, 7, 0, 1179834, 7, 0, 1179854, 2, 0, 1310698, 6, 0, 1310700, 6, 0, 1310702, 6, 0, 1310704, 6, 0, 1310706, 6, 0, 1310708, 6, 0, 1310710, 6, 0, 1310712, 6, 0, 1310714, 6, 0, 1310716, 6, 0, 1310718, 6, 0, 1245184, 6, 0, 1245186, 6, 0, 1245188, 6, 0, 1245190, 6, 0, 1245192, 6, 0, 1245194, 6, 0, 1245196, 6, 0, 1245198, 6, 0, 1245200, 6, 0, 1245202, 6, 0, 1245204, 6, 0, 1245206, 6, 0, 1245208, 6, 0, 1245210, 6, 0, 1245212, 6, 0, 1245214, 6, 0, 1245216, 6, 0, 1245218, 6, 0, 1245220, 6, 0, 1245222, 6, 0, 1245224, 6, 0, 1245226, 6, 0, 1245228, 6, 0, 1245230, 6, 0, 1245232, 6, 0, 1245234, 6, 0, 1245236, 6, 0, 1245238, 6, 0, 1245240, 6, 0, 1245242, 6, 0, 1245244, 6, 0, 1245246, 6, 0, 1245248, 6, 0, 1245250, 6, 0, 1245252, 6, 0, 1245254, 6, 0, 1245256, 6, 0, 1245258, 6, 0, 1245260, 6, 0, 1245262, 6, 0, 1245264, 6, 0, 1245266, 6, 0, 1245268, 6, 0, 1245270, 6, 0, 1245272, 6, 0, 1245274, 6, 0, 1245276, 6, 0, 1245278, 6, 0, 1245280, 6, 0, 1245282, 6, 0, 1245284, 6, 0, 1245286, 6, 0, 1245288, 6, 0, 1245290, 6, 0, 1245292, 6, 0, 1245294, 6, 0, 1245296, 6, 0, 1245298, 6, 0, 1245300, 6, 0, 1245302, 6, 0, 1245304, 6, 0, 1245306, 6, 0, 1245308, 6, 0, 1245310, 6, 0, 1245312, 6, 0, 1245314, 6, 0, 1245316, 6, 0, 1245318, 6, 0, 1245320, 6, 0, 1245322, 6, 0, 1245324, 6, 0, 1245326, 6, 0, 1245328, 6, 0, 1245330, 6, 0, 1245332, 6, 0, 1245334, 6, 0, 1245336, 6, 0, 1245338, 6, 0, 1245340, 6, 0, 1245342, 6, 0, 1245344, 6, 0, 1245346, 6, 0, 1245348, 6, 0, 1245350, 6, 0, 1245352, 6, 0, 1245354, 6, 0, 1245356, 6, 0, 1245358, 6, 0, 1245360, 6, 0, 1245362, 6, 0, 1245364, 6, 0, 1245366, 6, 0, 1245368, 6, 0, 1245370, 6, 0, 1245372, 6, 0, 1245374, 6, 0, 1245376, 6, 0, 1245378, 6, 0, 1245380, 6, 0, 1245382, 6, 0, 1245384, 6, 0, 1245386, 6, 0, 1245388, 6, 0, 1245390, 2, 0 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = -251.0
+margin_top = 332.0
+margin_right = 379.0
+margin_bottom = 374.0
+custom_fonts/font = SubResource( 16 )
+text = "WELCOME TO THE TUTORIAL LEVEL!"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Control"]
+margin_left = 976.0
+margin_top = 332.0
+margin_right = 1510.0
+margin_bottom = 392.0
+custom_fonts/font = SubResource( 17 )
+text = "You can destroy enemies by using the Left Mouse Button or by pressing the Spacebar while the mouse is over an enemy"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label8" type="Label" parent="Control"]
+margin_left = 450.0
+margin_top = 332.0
+margin_right = 746.0
+margin_bottom = 392.0
+custom_fonts/font = SubResource( 17 )
+text = "Use the arrow keys to move"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label3" type="Label" parent="Control"]
+margin_left = 1545.0
+margin_top = 332.0
+margin_right = 2079.0
+margin_bottom = 392.0
+custom_fonts/font = SubResource( 17 )
+text = "You collect 500mb's for each enemy you destroy, this only applies to recovery mode"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label4" type="Label" parent="Control"]
+margin_left = 2108.0
+margin_top = 335.0
+margin_right = 2642.0
+margin_bottom = 395.0
+custom_fonts/font = SubResource( 17 )
+text = "if you are playing in corrupted mode, you will need to destory 15 enemies to complete the level"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label5" type="Label" parent="Control"]
+margin_left = 2752.0
+margin_top = 335.0
+margin_right = 3286.0
+margin_bottom = 395.0
+custom_fonts/font = SubResource( 17 )
+text = "You can also collect powerups and get benifts in a level"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label6" type="Label" parent="Control"]
+margin_left = 3434.0
+margin_top = 335.0
+margin_right = 4095.0
+margin_bottom = 395.0
+custom_fonts/font = SubResource( 17 )
+text = "If you lose health, your player will become more corrupted depending on how much health you have left"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label7" type="Label" parent="Control"]
+margin_left = 4154.0
+margin_top = 335.0
+margin_right = 4815.0
+margin_bottom = 395.0
+custom_fonts/font = SubResource( 17 )
+text = "EFFECTS OF PLAYER CORRUPTION ARE INVERTED MOVEMENT CONTROLS AND SPEED DECREASE"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label9" type="Label" parent="Control"]
+margin_left = 5297.0
+margin_top = 337.0
+margin_right = 5958.0
+margin_bottom = 397.0
+custom_fonts/font = SubResource( 17 )
+text = "THIS IS A JUMP-PAD, YOU WILL FIND THEM WHERE THERE IS A FLOATING AREA."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label10" type="Label" parent="Control"]
+margin_left = 5656.0
+margin_top = 6.0
+margin_right = 6045.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 17 )
+text = "TUTORIAL COMPLETE! 
+PRESS THE ESCAPE BUTTON TO ACCESS THE PAUSE MENU AND EXIT THE TUTORIAL!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="ShowDataCollectedArea" type="Area2D" parent="."]
+position = Vector2( 1760, 257 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShowDataCollectedArea"]
+position = Vector2( 49.5, 150 )
+shape = SubResource( 20 )
+
+[node name="CorruptionEffects" type="Area2D" parent="."]
+position = Vector2( 4374, 417 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorruptionEffects"]
+position = Vector2( -73, -11 )
+shape = SubResource( 21 )
+
+[node name="RestoreHealth" type="Area2D" parent="."]
+position = Vector2( 4374, 417 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RestoreHealth"]
+position = Vector2( 315.5, -8.5 )
+shape = SubResource( 22 )
+
+[node name="DecreaseHealth" type="Area2D" parent="."]
+position = Vector2( 3662, 257 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DecreaseHealth"]
+position = Vector2( -124, 151 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DecreaseHealth"]
+position = Vector2( 103, 151 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DecreaseHealth"]
+position = Vector2( 355, 151 )
+shape = SubResource( 18 )
+
+[node name="Node2D" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2886, 492 )
+
+[node name="HealthPowerUp" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3093, 488 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 23 )
+anims/RESET = SubResource( 24 )
+
+[node name="FadeIn" type="ColorRect" parent="."]
+margin_left = -784.0
+margin_top = -726.0
+margin_right = 6326.0
+margin_bottom = 1294.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 17 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 2.0
+margin_bottom = -3.0
+color = Color( 0, 0, 0, 0.705882 )
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -192.0
+margin_top = 13.0
+margin_right = 196.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 25 )
+text = "Pause Menu"
+
+[node name="Buttons" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 2.0
+margin_bottom = -3.0
+
+[node name="ResumeGame" type="Button" parent="CanvasLayer/Buttons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.5
+margin_top = -18.5
+margin_right = 115.5
+margin_bottom = 18.5
+custom_fonts/font = SubResource( 28 )
+custom_styles/normal = SubResource( 29 )
+text = "RESUME TUTORIAL"
+
+[node name="Settings" type="Button" parent="CanvasLayer/Buttons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -69.0
+margin_top = 23.5
+margin_right = 69.0
+margin_bottom = 60.5
+custom_fonts/font = SubResource( 28 )
+custom_styles/normal = SubResource( 29 )
+text = "SETTINGS"
+
+[node name="ExitTutorial" type="Button" parent="CanvasLayer/Buttons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -92.5
+margin_top = 63.5
+margin_right = 92.5
+margin_bottom = 100.5
+custom_fonts/font = SubResource( 28 )
+custom_styles/normal = SubResource( 29 )
+text = "EXIT TUTORIAL"
+
+[node name="QuitToMainMenu" type="Button" parent="CanvasLayer/Buttons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = 114.5
+margin_right = 123.0
+margin_bottom = 151.5
+custom_fonts/font = SubResource( 28 )
+custom_styles/normal = SubResource( 29 )
+text = "Quit to MAIN MENU"
+
+[node name="QuitToDesktop" type="Button" parent="CanvasLayer/Buttons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -122.5
+margin_top = 157.5
+margin_right = 122.5
+margin_bottom = 194.5
+custom_fonts/font = SubResource( 28 )
+custom_styles/normal = SubResource( 29 )
+text = "Quit to desktop"
+
+[node name="SettingsPopup" type="Popup" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -152.0
+margin_top = -182.5
+margin_right = 152.0
+margin_bottom = 182.5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/SettingsPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control" type="Control" parent="CanvasLayer/SettingsPopup/ColorRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/SettingsPopup/ColorRect/Control"]
+margin_left = 226.0
+margin_top = 81.5
+margin_right = 302.0
+margin_bottom = 121.5
+
+[node name="Label" type="Label" parent="CanvasLayer/SettingsPopup/ColorRect/Control"]
+margin_left = 23.0
+margin_top = 95.0
+margin_right = 158.0
+margin_bottom = 109.0
+custom_fonts/font = SubResource( 30 )
+text = "Sound"
+
+[node name="ClosePopup" type="Button" parent="CanvasLayer/SettingsPopup"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -43.0
+margin_top = 2.0
+margin_right = -3.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 31 )
+custom_styles/normal = SubResource( 32 )
+text = "X"
+
+[node name="SettingsTimer" type="Timer" parent="CanvasLayer"]
+wait_time = 2.0
+
+[node name="01" type="Control" parent="."]
+margin_left = 1346.0
+margin_right = 1386.0
+margin_bottom = 40.0
+
+[node name="Light2D" type="Light2D" parent="01"]
+position = Vector2( 4261.5, 559 )
+scale = Vector2( 0.19125, 0.0633334 )
+texture = ExtResource( 3 )
+shadow_enabled = true
+
+[node name="JumpPad" type="Area2D" parent="01/Light2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="01/Light2D/JumpPad"]
+position = Vector2( -3.92383, -63.1563 )
+scale = Vector2( 0.999999, 0.999999 )
+shape = SubResource( 33 )
+
+[connection signal="area_entered" from="Player/PlayerArea" to="Player" method="_on_PlayerArea_area_entered"]
+[connection signal="area_exited" from="Player/PlayerArea" to="Player" method="_on_PlayerArea_area_exited"]
+[connection signal="timeout" from="Player/HealthDecreaseTimer" to="Player" method="_on_HealthDecreaseTimer_timeout"]
+[connection signal="area_entered" from="Player/MouseCursor/MeshInstance2D/Mouse" to="Player" method="_on_Mouse_area_entered"]
+[connection signal="area_exited" from="Player/MouseCursor/MeshInstance2D/Mouse" to="Player" method="_on_Mouse_area_exited"]
+[connection signal="pressed" from="CanvasLayer/Buttons/ResumeGame" to="CanvasLayer" method="_on_ResumeGame_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Settings" to="CanvasLayer" method="_on_Settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/ExitTutorial" to="CanvasLayer" method="_on_ExitTutorial_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/QuitToMainMenu" to="CanvasLayer" method="_on_QuitToMainMenu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/QuitToDesktop" to="CanvasLayer" method="_on_QuitToDesktop_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsPopup/ColorRect/Control/CheckButton" to="CanvasLayer" method="_on_CheckButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsPopup/ClosePopup" to="CanvasLayer" method="_on_ClosePopup_pressed"]
+[connection signal="timeout" from="CanvasLayer/SettingsTimer" to="CanvasLayer" method="_on_SettingsTimer_timeout"]

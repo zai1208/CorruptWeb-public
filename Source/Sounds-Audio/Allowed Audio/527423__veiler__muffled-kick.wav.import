@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/527423__veiler__muffled-kick.wav-268e78f1c9a1175fd83db43c8c81e1af.sample"
+
+[deps]
+
+source_file="res://Source/Sounds-Audio/Allowed Audio/527423__veiler__muffled-kick.wav"
+dest_files=[ "res://.import/527423__veiler__muffled-kick.wav-268e78f1c9a1175fd83db43c8c81e1af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

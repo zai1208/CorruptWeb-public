@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/395804__doty21__hard-static-loop.wav-29008ec01367957401e194620c4561b6.sample"
+
+[deps]
+
+source_file="res://Source/Sounds-Audio/395804__doty21__hard-static-loop.wav"
+dest_files=[ "res://.import/395804__doty21__hard-static-loop.wav-29008ec01367957401e194620c4561b6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
